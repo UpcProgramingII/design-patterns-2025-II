@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<h1>Task List</h1>
+
+<form th:action="@{/tasks}" method="post">
+    <input type="text" name="title" placeholder="Title Task"/>
+    <input type="text" name="description" placeholder="Description Task"/>
+    <button type="submit">Add Task</button>
+</form>
+
+<ul>
+    <li th:each="task : ${tasksList}">
+        <span th:text="${task.title}">Task title</span>
+        (<span th:text="${task.id}">Task id</span>):<span th:text="${task.description}">Task description</span>
+    </li>
+</ul>
+<p>Total tareas: <span th:text="${count}"> count </span></p>
+
+</body>
+</html>
+
